@@ -1,0 +1,347 @@
+---
+title: "Preliminary Analysis"
+date: "`r Sys.Date()`"
+output:
+  bookdown::html_document2:
+    theme: flatly
+    code_folding: hide
+    # toc: true
+    # toc_depth: 2  
+    # number_sections: true 
+editor_options: 
+  chunk_output_type: console
+  markdown: 
+    wrap: 72
+# bibliography: references.bib
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+ggplot2::theme_set(ggplot2::theme_minimal())
+
+source(here::here("R", "environment.R"))
+```
+
+```{r load-data, include = FALSE}
+
+all_trials <- read_csv(here("data", "trials.csv"))
+registrations <- read_csv(here("data", "registrations.csv"))
+all_results <- read_csv(here("data", "results.csv"))
+```
+
+# Trial screening
+
+This will need to be rerun after deduping registrations.
+
+```{r screening}
+
+# Returns list of inclusion counts and filtered dataframe
+count_filter <- function(data, vars) {
+  
+  counts <- 
+    tibble(name = as.character(),
+           value = as.logical(),
+           n = as.integer()
+    )
+  
+  for (var in vars) {
+    counts <-
+      data %>% 
+      count(.data[[var]]) %>% 
+      pivot_longer(-n) %>% 
+      add_row(counts, .)
+    
+    data <- filter(data, .data[[var]])
+  }
+  
+  list(data = data, counts = counts)
+  
+}
+
+# Screening criteria, in order
+# Note: first 3 criteria alternatively encoded as `is_eligible_study`
+screening_criteria <- c(
+  "is_reg_2020",             # Must have 2020+ registration (auto)
+  "is_intervention",         # Must be intervention/prevention (auto)
+  "is_not_withdrawn",        # Must not be withdrawn (auto)
+  "is_rcd_cutoff_1",         # Must be complete by cutoff (auto)
+  "is_clinical_trial_manual",# Must be clinical trial (manual)
+  "is_covid_manual",         # Must be covid intervention/prevention (manual)
+  "is_not_withdrawn_manual"  # Must not be withdrawn (manual)
+)
+
+screened_trials <- 
+  count_filter(all_trials, screening_criteria)
+
+trials <- 
+  screened_trials$data %>% 
+  
+  # Target enrollment should be numeric
+  mutate(target_enrollment = as.numeric(target_enrollment))
+
+screening_counts <- screened_trials$counts
+
+kable(screening_counts)
+```
+
+The screened dataset for analysis includes `r nrow(trials)` trials.
+
+# Results screening
+
+*We may also want to report overall number of results, etc. but maybe
+not because we capture protocols, etc. and not clear what's what.*
+
+For our analysis, we include limit results to:
+
+-   only from trials in our screened dataset
+-   only full-results and registry summary results
+-   published by 2020-08-15 (excludes results without publication date)
+    [Note: this excludes about half of our results]
+
+```{r all-results}
+# semi_join(trials, by = c("id_trial" = "id")) %>%
+# filter(date_publication <= "2020-08-15") 
+
+# Add results inclusion criteria
+all_results <-
+  
+  all_results %>%
+  
+  mutate(
+    is_trial_included = 
+      if_else(id_trial %in% trials$id, TRUE, FALSE),
+    
+    is_pub_date_cutoff_1 = 
+      if_else(date_publication <= "2020-08-15", TRUE, FALSE),
+    
+    is_pub_main =
+      if_else(str_detect(pub_type, "other|interim", negate = TRUE), 
+        TRUE, FALSE
+      )
+  )
+
+```
+
+# Per Protocol Analysis
+
+```{r completion-dates}
+
+# This includes all publication completion dates (so could include from publications after 2020-08-15, interim results, etc.). We should decide whether to exclude.
+# I checked. There are completion dates from 5 publications. All full results. 2 from after 2020-08-15.
+
+# Prepare publication completion dates
+# Remove the many publications without dates and spread dates for trials with multiple publications with dates (since some are the same and others are not)
+pub_completion_dates <- 
+  all_results %>% #or results? to exclude
+  filter(!is.na(date_completion)) %>% 
+  select(id_trial, date_completion) %>% 
+  group_by(id_trial) %>% 
+  mutate(pub_n = row_number()) %>% 
+  pivot_wider(id_trial, 
+              names_from = pub_n, names_prefix = "publication_",
+              values_from = date_completion
+  )
+  
+completion_dates <-
+  trials %>% 
+  select(id, auto = rcd_auto, manual = rcd_manual) %>% 
+  left_join(
+    pub_completion_dates,
+    by = c("id" = "id_trial")
+  ) %>% 
+
+# TODO: decide what to report about completion dates
+  mutate(
+    # Does a publication report a completion date?
+    has_pub_comp_date = if_else(!is.na(publication_1), TRUE, FALSE),
+    
+    # Does the completion date stay the same throughout?
+    # If publications found, take into consideration.
+    no_change = if_else(
+    (auto == manual & is.na(publication_1) & is.na(publication_2)) |
+      (auto == manual & manual == publication_1 & is.na(publication_2)) |
+      (auto == manual & manual == publication_1 & publication_1 == publication_2),
+      TRUE, FALSE
+  ),
+  
+  # Did the registry date get postponed? Aka, is the manual date later than the the auto date?
+  reg_date_change = 
+    case_when(
+    auto == manual ~ "No change",
+    auto > manual ~ "Delay",
+    auto < manual ~ "Early"
+  )
+  )
+
+n_date_change <-
+  completion_dates %>% 
+  filter(!no_change) %>% 
+  nrow()
+
+# Probably want to report as proportion of trials with publications
+n_pub_comp_date <-
+  completion_dates %>% 
+  filter(has_pub_comp_date) %>% 
+  nrow()
+
+```
+
+```{r additional-descriptives}
+
+n_ongoing_trials <-
+  screening_counts %>% 
+  filter(name == "is_rcd_cutoff_1" & value == FALSE) %>% 
+  pull(n)
+
+```
+
+At each timepoint, we will report:
+
+a.  The total number of clinical trials on COVID-19:
+
+    1.  That are completed per the completion date: `r nrow(trials)`
+        completed trials (based on completion date on registry on
+        2020-06-30)
+
+    2.  That are ongoing per the completion date: `r n_ongoing_trials`
+        ongoing trials (based on completion date on registry on
+        2020-06-30)
+
+    3.  That were otherwise excluded from the analysis: See flowchart or
+        we should decide if we want to specify other screening numbers
+        in text.
+
+    4.  For which the completion date on the registry was superseded by
+        additional data (i.e., information from full results
+        publication): Completion dates changed (in either the manual
+        registry check or in a results publication) for
+        `r n_date_change` trials. We found completion dates reported in
+        results publications for `r n_pub_comp_date` trials. When
+        completion dates did change on the registry between our
+        automated and manual screenings, they were usually moved up:
+
+    ```{r registry-completion-dates}
+    completion_dates %>% 
+      count(reg_date_change) %>% 
+      kable()
+    ```
+
+    ```{r interim-results}
+
+    interim_results_overview <-
+      all_results %>%
+      filter(str_detect(pub_type, "interim")) %>% 
+      count(is_trial_included, is_pub_date_cutoff_1)
+
+    n_interim_results_included_trials <-
+      interim_results_overview %>% 
+      filter(is_trial_included, is_pub_date_cutoff_1) %>% 
+      pull(n)
+    ```
+
+    5.  For which we identified interim results: For trials included and
+        by the publication cutoff date of 2020-08-15, we found
+        `r n_interim_results_included_trials` interim result. We found
+        additional interim results that are otherwise excluded (see
+        table).
+
+```{r table-interim-results}
+kable(interim_results_overview)
+```
+
+1.  The total number of patients enrolled/anticipated to be enrolled in
+    each clinical trial: Target enrollment ranged from
+    `r min(trials$target_enrollment)` to
+    `r     max(trials$target_enrollment)` with a mean of
+    `r mean(trials$target_enrollment)` (IQR =
+    `r IQR(trials$target_enrollment)`)
+
+```{r results}
+
+results <-
+  all_results %>% 
+  filter(is_trial_included & is_pub_date_cutoff_1 & is_pub_main)
+
+n_trials_w_results <- 
+  results %>% 
+  distinct(id_trial) %>% 
+  nrow()
+
+n_results_per_trial <-
+  results %>% 
+  count(id_trial, name = "n_results") %>% 
+  count(n_results, name = "n_trials")
+
+```
+
+c.  The total number/proportion of clinical trials on COVID-19 with a
+    results publication across all results publication types examined by
+    this study (i.e., registry results, preprints, or journal articles)
+    and descriptive statistics on publication time and type.
+
+    We found a total of `r nrow(results)` registry results, full-results
+    preprints, and journal articles, for `r n_trials_w_results` trials.
+    The majority of trials reporting results did so through a single
+    publication type:
+
+```{r n-results-per-trial}
+kable(n_results_per_trial)
+```
+
+```{r plot-pubs}
+plot_pubs <-
+  results %>% 
+  mutate(pub_type = case_when(
+    pub_type == "full_results_preprint" ~ "Full Preprint",
+    pub_type == "full_results_journal_article" ~ "Full Journal Article",
+    pub_type == "summary_results" ~ "Registry Results",
+  )) %>% 
+  ggplot(aes(x = pub_type)) +
+  geom_bar() +
+  # xlab("All Publication Types") +
+  ggtitle("COVID-19 Clinical Trial Results Publications") +
+  theme(
+    axis.title.y = element_blank()
+  ) +
+  ggthemes::theme_fivethirtyeight()
+
+plot_pubs_combo <-
+  results %>% 
+  select(id_trial, pub_type) %>%
+  distinct() %>% # Remove multiple of single publcation type
+  group_by(id_trial) %>% 
+  mutate(pub_type = case_when(
+    pub_type == "full_results_preprint" ~ "Preprint",
+    pub_type == "full_results_journal_article" ~ "Journal Article",
+    pub_type == "summary_results" ~ "Registry Results"
+  )) %>% 
+  summarise(pub_types = list(pub_type)) %>% 
+  ggplot(aes(x = pub_types)) +
+  geom_bar() +
+  geom_text(stat='count', aes(label = after_stat(count)), vjust = -.5) +
+    ggupset::scale_x_upset(
+    sets = c("Preprint", "Journal Article", "Registry Results")
+  ) +
+  scale_y_continuous(breaks = NULL, #lim = c(0, 3), 
+                     name = "") +
+  # xlab("Publication Types") +
+  labs(
+    title = "COVID-19 Clinical Trial Results",
+    subtitle = "Intersection of Publication Types"
+  ) +
+  ggthemes::theme_fivethirtyeight() +
+  theme_combmatrix(combmatrix.label.make_space = TRUE,
+                   combmatrix.label.text = element_text(size=15)
+  )
+
+plot_pubs
+plot_pubs_combo
+```
+
+a.  A Kaplan-Meier plot detailing the current median time from (primary)
+    completion date to any publication and to each results publication
+    type.
+
+b.  Median time from preprint publication to journal publication per the
+    Kaplan-Meier method. In the case of very small samples, we may
+    adjust the reporting method to better describe the available data.

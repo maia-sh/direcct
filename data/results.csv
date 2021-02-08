@@ -1,0 +1,165 @@
+id_trial,trn,search_type,pub_type,search_engine,doi,pmid,cord_id,url,date_publication,date_completion,comments
+tri00002,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.03.19.20038984,NA,9hknw4ws,https://doi.org/10.1101/2020.03.19.20038984,2020-04-15,NA,NA
+tri00002,see `trials`,results_check,full_results_journal_article,NA,10.1016/j.medj.2020.04.001,NA,ytqjxzaa,https://doi.org/10.1016/j.medj.2020.04.001; https://www.sciencedirect.com/science/article/pii/S2666634020300015?v=s5; https://api.elsevier.com/content/article/pii/S2666634020300015,2020-05-04,NA,NA
+tri00022,see `trials`,trn,full_results_journal_article,pubmed,10.1002/advs.202001435,32837847,NA,https://onlinelibrary.wiley.com/doi/10.1002/advs.202001435,2020-07-14,NA,NA
+tri00026,see `trials`,trn,full_results_journal_article,google_scholar,10.1038/s41421-020-00197-3,32802404,NA,NA,2020-08-05,NA,correspondence
+tri00042,see `trials`,trn,full_results_journal_article,europe_pmc,10.1016/j.biopha.2020.110500,NA,NA,https://www.sciencedirect.com/science/article/pii/S0753332220306934?via%3Dihub,2020-07-04,NA,NA
+tri00047,see `trials`,trn,full_results_preprint,google_scholar,10.2139/ssrn.3667681,NA,NA,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3667681,2020-08-29,NA,NA
+tri00076,see `trials`,results_check,full_results_journal_article,NA,10.1016/j.eng.2020.03.007,32346491,8caqxfxv,https://api.elsevier.com/content/article/pii/S2095809920300631; https://www.sciencedirect.com/science/article/pii/S2095809920300631; https://www.ncbi.nlm.nih.gov/pubmed/32346491/; https://doi.org/10.1,2020-03-18,NA,NA
+tri00080,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.03.22.20040758,NA,q8l3ra55,https://doi.org/10.1101/2020.03.22.20040758,2020-03-30,NA,NA
+tri00083,see `trials`,trn,full_results_preprint,europe_pmc,10.1101/2020.04.29.20085761,NA,NA,https://www.medrxiv.org/content/10.1101/2020.04.29.20085761v1,2020-05-05,NA,NA
+tri00083,see `trials`,keywords,full_results_journal_article,google_scholar,10.1016/j.ejps.2020.105631,33115675,NA,https://www.sciencedirect.com/science/article/abs/pii/S092809872030419X?via%3Dihub,2020-10-25,NA,NA
+tri00084,see `trials`,results_check,interim_results_journal_article,NA,10.1093/jmcb/mjaa014,32236562,NA,https://academic.oup.com/jmcb/article/12/4/322/5814655,2020-04-01,NA,NA
+tri00101,see `trials`,registry,other,NA,NA,NA,NA,http://www.chictr.org.cn/showproj.aspx?proj=48827,NA,NA,uploaded doc in chinese as registry results but seems to be protocol
+tri00103,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.04.07.20054767,NA,gzao2fo6,https://doi.org/10.1101/2020.04.07.20054767,2020-04-14,NA,NA
+tri00105,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.03.27.20044974,NA,4as055wh,http://medrxiv.org/cgi/content/short/2020.03.27.20044974v1?rss=1,2020-04-01,NA,NA
+tri00105,see `trials`,results_check,full_results_journal_article,NA,10.3389/fmed.2020.00256,32574340,c2erqns2,https://doi.org/10.3389/fmed.2020.00256; https://www.ncbi.nlm.nih.gov/pubmed/32574340/,2020-05-27,NA,NA
+tri00107,see `trials`,results_check,full_results_journal_article,NA,10.3760/cma.j.cn121430-20200406-00386,32527346,NA,NA,2020-04-28,NA,NA
+tri00137,see `trials`,trn,full_results_journal_article,europe_pmc,10.1093/cid/ciaa1417,NA,NA,NA,2020-09-21,NA,NA
+tri00137,see `trials`,trn,full_results_journal_article,europe_pmc,10.1007/s12250-020-00258-7,NA,NA,NA,2020-07-21,NA,NA
+tri00139,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.06.19.20136093,NA,t1vom8f3,http://medrxiv.org/cgi/content/short/2020.06.19.20136093v1?rss=1,2020-06-22,NA,NA
+tri00140,see `trials`,results_check,full_results_journal_article,NA,10.1073/pnas.2004168117,32253318,rbgoabfk,https://www.ncbi.nlm.nih.gov/pubmed/32253318/; https://doi.org/10.1073/pnas.2004168117,2020-04-06,NA,NA
+tri00159,see `trials`,trn,full_results_journal_article,pubmed,10.1001/jamainternmed.2020.5503,32910179,NA,https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2770680,2020-09-10,2020-04-10,NA
+tri00164,see `trials`,keywords,full_results_journal_article,pubmed,10.1016/j.eng.2020.08.011,32923016,NA,https://www.sciencedirect.com/science/article/pii/S2095809920302411?via%3Dihub,2020-09-08,NA,NA
+tri00164,see `trials`,registry,summary_results,NA,NA,NA,NA,http://www.chictr.org.cn/showproj.aspx?proj=49723,2020-06-17,NA,NA
+tri00171,see `trials`,results_check,full_results_journal_article,NA,10.14336/ad.2020.0228,32257537,ghfrwccu,https://www.ncbi.nlm.nih.gov/pubmed/32257537/; https://doi.org/10.14336/ad.2020.0228,2020-03-13,NA,NA
+tri00185,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.04.15.20066266,NA,mvsnybbo,http://medrxiv.org/cgi/content/short/2020.04.15.20066266v1?rss=1,2020-04-21,NA,NA
+tri00193,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.03.21.20040691,NA,6g34qwer,https://doi.org/10.1101/2020.03.21.20040691,2020-03-24,NA,NA
+tri00230,see `trials`,trn,full_results_preprint,NA,10.2139/ssrn.3678558,NA,NA,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3678558,2020-10-12,2020-04-30,NA
+tri00230,see `trials`,trn,full_results_preprint,NA,10.21203/rs.3.rs-99753/v1,NA,NA,https://www.researchsquare.com/article/rs-99753/v1,2020-11-02,2020-04-30,NA
+tri00248,see `trials`,trn,full_results_journal_article,google_scholar,10.1097/JBR.0000000000000076,NA,NA,https://journals.lww.com/jbioxresearch/Abstract/9000/Clinical_efficacy_of_low_dose_emetine_for_patients.99938.aspx,2020-12-03,NA,report incorrect dates (2019)
+tri00270,see `trials`,trn,full_results_preprint,europe_pmc,10.1101/2020.08.02.20166710,NA,NA,https://www.medrxiv.org/content/10.1101/2020.08.02.20166710v1,2020-08-04,NA,"Trial registration had control. Full results preprint does NOT have control, but same study."
+tri00319,see `trials`,results_check,full_results_journal_article,NA,10.1001/jama.2020.10044,32492084,NA,NA,2020-06-03,2020-04-28,NA
+tri00324,see `trials`,results_check,full_results_journal_article,NA,10.1056/NEJMoa2001282,32187464,NA,NA,2020-03-18,NA,NA
+tri00440,see `trials`,keywords,other,google_scholar,NA,NA,NA,https://search.bvsalud.org/global-literature-on-novel-coronavirus-2019-ncov/resource/en/czh-1187,NA,NA,"Abstract, no link to full pub. Available only in WHO database with link to an ""internal database"" so unclear whether it is public."
+tri00458,see `trials`,keywords,full_results_preprint,europe_pmc,10.1101/2020.02.27.20027557,NA,NA,https://www.medrxiv.org/content/10.1101/2020.02.27.20027557v1,2020-02-29,NA,NA
+tri00458,see `trials`,results_check,full_results_journal_article,NA,10.1016/j.apsb.2020.04.008,32318327,k7bh8bf7,https://api.elsevier.com/content/article/pii/S2211383520305529; https://doi.org/10.1016/j.apsb.2020.04.008; https://www.ncbi.nlm.nih.gov/pubmed/32318327/; https://www.sciencedirect.com/science/article,2020-04-20,NA,NA
+tri00507,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.05.11.20064584,NA,7g3keqx9,http://medrxiv.org/cgi/content/short/2020.05.11.20064584v1?rss=1,2020-05-15,NA,NA
+tri00521,see `trials`,trn,full_results_preprint,europe_pmc,10.1101/2020.03.17.20037432,NA,NA,https://www.medrxiv.org/content/10.1101/2020.03.17.20037432v4,2020-03-20,NA,NA
+tri00526,see `trials`,results_check,full_results_journal_article,NA,10.1136/bmj.m1849,32409561,NA,NA,2020-05-14,2020-03-14,NA
+tri00526,see `trials`,trn,full_results_preprint,europe_pmc,10.1101/2020.04.10.20060558,NA,NA,https://www.medrxiv.org/content/10.1101/2020.04.10.20060558v1?versioned=true,2020-04-14,2020-03-14,NA
+tri00530,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.04.24.20077735,NA,rq5gh710,http://medrxiv.org/cgi/content/short/2020.04.24.20077735v1?rss=1,2020-04-29,NA,NA
+tri00531,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.03.16.20037135,NA,tdlcb9bf,https://doi.org/10.1101/2020.03.16.20037135,2020-03-20,NA,NA
+tri00531,see `trials`,results_check,full_results_journal_article,NA,10.1016/j.ijantimicag.2020.105949,32205204,5o9bbspc,https://www.sciencedirect.com/science/article/pii/S0924857920300996?v=s5; https://doi.org/10.1016/j.ijantimicag.2020.105949; https://www.ncbi.nlm.nih.gov/pubmed/32205204/; https://api.elsevier.com/con,2020-03-20,NA,NA
+tri00596,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.05.20.20107607,NA,1q8972uo,http://medrxiv.org/cgi/content/short/2020.05.20.20107607v1?rss=1,2020-05-26,NA,NA
+tri00623,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.05.05.20077610,NA,a1gf76bu,http://medrxiv.org/cgi/content/short/2020.05.05.20077610v1?rss=1,2020-05-11,NA,NA
+tri00623,see `trials`,trn,full_results_journal_article,google_scholar,10.3389/fphar.2020.561674,NA,NA,https://www.frontiersin.org/articles/10.3389/fphar.2020.561674/full,2020-11-06,NA,NA
+tri00623,see `trials`,registry,summary_results,NA,NA,NA,NA,https://drive.google.com/file/d/1E88CDMrgichIvQozs4NrCFGcu4t49Reu/view?usp=sharing,NA,NA,registry results as uploaded spreadsheet
+tri00654,see `trials`,keywords,full_results_preprint,europe_pmc,10.1101/2020.07.26.20159756,NA,NA,https://www.medrxiv.org/content/10.1101/2020.07.26.20159756v1,2020-07-29,NA,NA
+tri00656,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.04.11.20061473,NA,z68tl88x,https://doi.org/10.1101/2020.04.11.20061473,2020-04-17,NA,NA
+tri00732,see `trials`,results_check,full_results_journal_article,NA,10.3785/j.issn.1008-9292.2020.03.03,32391667,NA,NA,2020-05-25,NA,NA
+tri00735,see `trials`,trn,full_results_preprint,europe_pmc,10.1101/2020.03.22.20034041,NA,NA,https://www.medrxiv.org/content/10.1101/2020.03.22.20034041v1,2020-03-24,NA,NA
+tri00735,see `trials`,trn,full_results_journal_article,europe_pmc,10.1097/MD.0000000000023357,33235105,NA,https://journals.lww.com/md-journal/Fulltext/2020/11250/First_clinical_study_using_HCV_protease_inhibitor.53.aspx,2020-11-25,NA,NA
+tri00738,see `trials`,trn,full_results_journal_article,NA,10.1016/j.biopha.2020.110825,33378989,NA,https://www.sciencedirect.com/science/article/pii/S0753332220310180?via%3Dihub,2020-09-30,NA,NA
+tri00739,see `trials`,trn,other,europe_pmc,10.1101/2020.07.11.20151365,NA,NA,https://www.medrxiv.org/content/10.1101/2020.07.11.20151365v1,2020-07-11,NA,secondary analysis
+tri00739,see `trials`,trn,full_results_preprint,google_scholar,10.21203/rs.3.rs-42117/v1,NA,NA,https://www.researchsquare.com/article/rs-42117/v1,2020-07-22,NA,NA
+tri00740,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.06.01.20119149,NA,xv0jhsj0,http://medrxiv.org/cgi/content/short/2020.06.01.20119149v1?rss=1,2020-06-05,2020-04-04,NA
+tri00740,see `trials`,registry,full_results_journal_article,NA,10.1186/s12967-020-02573-9,33087150,NA,NA,2020-10-21,NA,NA
+tri00829,see `trials`,results_check,full_results_journal_article,NA,10.1016/j.phymed.2020.153242,32425361,eb4z3u66,https://api.elsevier.com/content/article/pii/S0944711320300738; https://www.ncbi.nlm.nih.gov/pubmed/32425361/; https://www.sciencedirect.com/science/article/pii/S0944711320300738?v=s5; https://doi.org,2020-05-16,NA,NA
+tri00850,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.05.28.20116467,NA,ipvog4m8,http://medrxiv.org/cgi/content/short/2020.05.28.20116467v1?rss=1,2020-05-30,2020-05-03,NA
+tri00850,see `trials`,trn,full_results_journal_article,pubmed,10.1128/AAC.01061-20,32661006,NA,https://aac.asm.org/content/64/9/e01061-20,2020-08-20,2020-05-03,NA
+tri00853,see `trials`,results_check,full_results_journal_article,NA,10.1016/j.intimp.2020.106688,32544867,m7rx8tv9,https://www.ncbi.nlm.nih.gov/pubmed/32544867/; https://doi.org/10.1016/j.intimp.2020.106688; https://www.sciencedirect.com/science/article/pii/S1567576920312893?v=s5; https://api.elsevier.com/content/,2020-06-07,NA,NA
+tri00862,see `trials`,keywords,full_results_journal_article,pubmed,10.1111/ijcp.13600,32603531,NA,https://pubmed.ncbi.nlm.nih.gov/32603531/,2020-06-30,NA,NA
+tri00884,see `trials`,keywords,other,google,NA,NA,NA,https://www.fujifilm.com/jp/en/news/hq/5451#,2020-09-23,NA,"press release published in September, as of today (2020-12-27) I could not identify a full publication"
+tri00894,see `trials`,results_check,interim_results_journal_article,NA,10.1016/S0140-6736(20)31022-9,32423584,bzeqs5oh,https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)31022-9/fulltext,2020-04-29,2020-04-10,NA
+tri00894,see `trials`,registry,other,NA,10.1186/s13063-020-04352-9,32448345,NA,https://trialsjournal.biomedcentral.com/articles/10.1186/s13063-020-04352-9,2020-05-24,NA,protocol
+tri00896,see `trials`,results_check,full_results_journal_article,NA,10.1016/S0140-6736(20)31042-4,32401715,8ljnxihr,https://www.sciencedirect.com/science/article/pii/S0140673620310424; https://doi.org/10.1016/s0140-6736(20)31042-4; https://api.elsevier.com/content/article/pii/S0140673620310424; https://www.ncbi.nlm,2020-05-08,NA,NA
+tri01010,see `trials`,keywords,other,google,NA,NA,NA,https://acrabstracts.org/abstract/phase-i-trial-of-high-dose-hydroxychloroquine-for-the-treatment-of-ambulatory-patients-with-mild-covid-19-a-study-in-the-effects-of-shifting-public-opinion-on-patient,2020-11-09,2020-05-29,NA
+tri01119,see `trials`,trn,other,google_scholar,NA,NA,NA,https://static.poder360.com.br/2020/04/2020.04.15-journal-manuscript-final.pdf,NA,NA,NA
+tri01164,see `trials`,trn,full_results_journal_article,europe_pmc,10.1016/j.jinf.2020.04.017,32592703,NA,NA,2020-04-23,NA,NA
+tri01258,see `trials`,registry,summary_results,NA,NA,NA,NA,http://www.chictr.org.cn/showproj.aspx?proj=53048,2020-05-04,NA,NA
+tri01275,see `trials`,trn,full_results_journal_article,europe_pmc,10.1111/cts.12881,32881359,NA,https://ascpt.onlinelibrary.wiley.com/doi/10.1111/cts.12881,2020-09-03,NA,NA
+tri01358,see `trials`,results_check,full_results_journal_article,NA,10.1016/j.phrs.2020.104950,32450344,qx677js6,https://www.sciencedirect.com/science/article/pii/S1043661820312585?v=s5; https://api.elsevier.com/content/article/pii/S1043661820312585; https://www.ncbi.nlm.nih.gov/pubmed/32450344/; https://doi.org,2020-05-23,NA,NA
+tri01415,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.06.17.20133579,NA,zql4zhyk,http://medrxiv.org/cgi/content/short/2020.06.17.20133579v1?rss=1,2020-06-18,NA,NA
+tri01419,see `trials`,trn,full_results_journal_article,pubmed,10.1097/CCE.0000000000000263,33134951,NA,https://pubmed.ncbi.nlm.nih.gov/33134951/,2020-10-01,NA,NA
+tri01444,see `trials`,keywords,other,google,NA,NA,NA,https://www.innate-pharma.com/media/all-press-releases/first-patient-dosed-avdoralimab-phase-ii-clinical-trial-covid-19-patients-severe-pneumonia,2020-04-28,NA,Press release that first patient dosed
+tri01483,see `trials`,registry,other,NA,NA,NA,NA,https://clinicaltrials.gov/ProvidedDocs/05/NCT04280705/SAP_002.pdf,2020-05-29,NA,Statistical Analysis Plan (SAP) v3
+tri01483,see `trials`,registry,other,NA,NA,NA,NA,https://clinicaltrials.gov/ProvidedDocs/05/NCT04280705/Prot_001.pdf,2020-04-02,NA,Protocol v3
+tri01483,see `trials`,registry,summary_results,NA,NA,NA,NA,https://clinicaltrials.gov/ct2/show/results/NCT04280705,2020-09-25,NA,Registry results updated 2020-12-09.
+tri01483,see `trials`,registry,full_results_journal_article,NA,10.1056/NEJMoa2007764,32445440,NA,https://www.nejm.org/doi/10.1056/NEJMoa2007764,2020-10-08,2020-04-22,NA
+tri01483,see `trials`,results_check,interim_results_journal_article,NA,10.1056/NEJMoa2007764,32445440,NA,NA,2020-05-22,NA,NA
+tri01485,see `trials`,results_check,full_results_journal_article,NA,10.1001/jamanetworkopen.2020.13136,32579195,NA,NA,2020-06-24,NA,NA
+tri01485,see `trials`,registry,other,NA,10.1016/j.hjc.2020.03.002,32251729,NA,https://www.sciencedirect.com/science/article/pii/S1109966620300610?via%3Dihub,2020-04-03,NA,protocol
+tri01625,see `trials`,trn,full_results_journal_article,pubmed,10.1093/jac/dkaa332,32812025,NA,https://pubmed.ncbi.nlm.nih.gov/32812025/,2020-08-19,NA,NA
+tri01798,see `trials`,registry,other,NA,10.1186/s13063-020-04409-9,32522282,NA,https://trialsjournal.biomedcentral.com/articles/10.1186/s13063-020-04409-9,2020-06-10,NA,protocol
+tri01798,see `trials`,registry,other,NA,10.1186/s13063-020-04795-0,33081817,NA,https://trialsjournal.biomedcentral.com/articles/10.1186/s13063-020-04795-0,2020-10-20,NA,statistical analysis plan
+tri01868,see `trials`,trn,full_results_preprint,europe_pmc,10.1101/2020.07.08.20148841,NA,NA,https://www.medrxiv.org/content/10.1101/2020.07.08.20148841v1,2020-07-10,NA,NA
+tri01868,see `trials`,trn,full_results_journal_article,europe_pmc,10.1371/journal.pone.0242763,33264337,NA,https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0242763,2020-12-02,NA,NA
+tri01880,see `trials`,registry,full_results_journal_article,NA,10.7326/M20-6519,33284679,NA,NA,2020-12-08,NA,NA
+tri01880,see `trials`,registry,other,NA,10.1186/s13063-020-04446-4,32493478,NA,https://trialsjournal.biomedcentral.com/articles/10.1186/s13063-020-04446-4,2020-06-03,NA,protocol
+tri01886,see `trials`,registry,full_results_preprint,NA,10.2139/ssrn.3605131,NA,NA,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3605131,2020-06-16,NA,NA
+tri01886,see `trials`,results_check,other,NA,10.1101/2020.06.21.20132944,NA,x2t5h5gu,http://medrxiv.org/cgi/content/short/2020.06.21.20132944v1?rss=1,2020-06-23,NA,NA
+tri01886,see `trials`,registry,other,NA,10.1111/joim.13185,NA,NA,NA,2020-10-09,NA,This is the pub of the medrxiv preprint.
+tri01919,see `trials`,trn,full_results_journal_article,europe_pmc,10.21037/jtd-2020-057,32642277,NA,http://jtd.amegroups.com/article/view/40994/html,2020-06-15,NA,NA
+tri02014,see `trials`,results_check,full_results_journal_article,NA,10.1016/S0140-6736(20)31208-3,32450106,uj5deryi,https://doi.org/10.1016/s0140-6736(20)31208-3; https://www.sciencedirect.com/science/article/pii/S0140673620312083; https://www.ncbi.nlm.nih.gov/pubmed/32450106/; https://api.elsevier.com/content/arti,2020-05-22,NA,NA
+tri02067,see `trials`,keywords,other,pubmed,10.12659/AJCR.926779,32865522,NA,https://www.amjcaserep.com/abstract/index/idArt/926779,2020-08-07,NA,case study
+tri02143,see `trials`,keywords,other,google,NA,NA,NA,https://www.simit.org/formazione/protocolli-covid-19/56-baricivid-19-study-multicentre-randomised-phase-iia-clinical-trial-evaluating-efficacy-and-tolerability-of-baricitinib-as-add-on-treatment-of-pa,2020-04-22,NA,Protocol
+tri02189,see `trials`,keywords,other,google,NA,NA,NA,https://www.biomedres.info/biomedical-research/effects-of-ivermectinazithromycincholecalciferol-combined-therapy-on-covid19-infected-patients-a-proof-of-concept-study-14435.html,2020-08-15,NA,NA
+tri02198,see `trials`,keywords,full_results_preprint,europe_pmc,10.1101/2020.05.29.20114223,NA,NA,https://www.medrxiv.org/content/10.1101/2020.05.29.20114223v1.article-info,2020-06-02,NA,NA
+tri02324,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.05.26.20113373,NA,ze4bvjkt,http://medrxiv.org/cgi/content/short/2020.05.26.20113373v1?rss=1,2020-05-29,2020-04-28,NA
+tri02324,see `trials`,registry,other,NA,10.1007/s11739-020-02384-2,32468508,NA,https://link.springer.com/article/10.1007%2Fs11739-020-02384-2,2020-05-28,NA,Protocol
+tri02324,see `trials`,keywords,full_results_journal_article,pubmed,10.3324/haematol.2020.261784,33256382,NA,https://haematologica.org/article/view/9826,2020-07-23,2020-04-28,pre-published date
+tri02445,see `trials`,registry,full_results_journal_article,NA,10.1001/jama.2020.16349,32821939,NA,https://pubmed.ncbi.nlm.nih.gov/32821939/#affiliation-1,2020-08-21,NA,NA
+tri02446,see `trials`,results_check,full_results_journal_article,NA,10.1056/NEJMoa2015301,32459919,NA,https://www.nejm.org/doi/10.1056/NEJMoa2015301,2020-05-27,NA,NA
+tri02446,see `trials`,registry,summary_results,NA,NA,NA,NA,https://clinicaltrials.gov/ct2/show/results/NCT04292899,2020-12-31,NA,NA
+tri02446,see `trials`,trn,other,pubmed,10.1056/NEJMoa2015301,32459919,NA,https://www.nejm.org/doi/suppl/10.1056/NEJMoa2015301/suppl_file/nejmoa2015301_protocol.pdf,2020-05-27,NA,protocol (supplement to publication)
+tri02451,see `trials`,registry,full_results_journal_article,NA,10.1513/AnnalsATS.202008-940OC,33166179,NA,https://www.atsjournals.org/doi/10.1513/AnnalsATS.202008-940OC,2020-11-09,NA,NA
+tri02451,see `trials`,registry,other,NA,10.1513/AnnalsATS.202004-309SD,32425051,NA,https://www.atsjournals.org/doi/abs/10.1513/AnnalsATS.202004-309SD,2020-08-01,NA,Protocol
+tri02510,see `trials`,trn,interim_results_preprint,europe_pmc,10.21203/rs.3.rs-64465/v1,NA,NA,https://www.researchsquare.com/article/rs-64465/v1,2020-09-08,NA,"preliminary report, preprint"
+tri02513,see `trials`,trn,full_results_journal_article,europe_pmc,10.1016/j.ijantimicag.2020.106224,33166694,NA,https://www.sciencedirect.com/science/article/pii/S0924857920304350?via%3Dihub,2020-11-06,NA,NA
+tri02562,see `trials`,trn,full_results_journal_article,google_scholar,NA,32931666,NA,https://pubmed.ncbi.nlm.nih.gov/32931666/,2020-09-09,NA,NA
+tri02568,see `trials`,registry,summary_results,NA,NA,NA,NA,https://clinicaltrials.gov/ct2/show/results/NCT04343092,2020-11-04,NA,NA
+tri02568,see `trials`,trn,full_results_preprint,europe_pmc,10.1101/2020.07.07.20145979,NA,NA,https://www.medrxiv.org/content/10.1101/2020.07.07.20145979v1,2020-07-08,NA,NA
+tri02674,see `trials`,registry,summary_results,NA,NA,NA,NA,https://www.clinicaltrialsregister.eu/ctr-search/trial/2020-001270-29/results,2020-10-24,NA,NA
+tri02772,see `trials`,trn,full_results_journal_article,pubmed,10.1093/jac/dkaa334,32812039,NA,https://academic.oup.com/jac/article/75/11/3379/5889948,2020-08-19,NA,NA
+tri02845,see `trials`,keywords,full_results_preprint,europe_pmc,10.21203/rs.3.rs-91430/v1,NA,NA,https://www.researchsquare.com/article/rs-91430/v1,2020-10-19,2020-06-04,NA
+tri02863,see `trials`,keywords,full_results_preprint,europe_pmc,10.1101/2020.07.13.20146175,NA,NA,https://www.medrxiv.org/content/10.1101/2020.07.13.20146175v1,2020-07-20,NA,NA
+tri02866,see `trials`,trn,full_results_preprint,europe_pmc,10.1101/2020.06.08.20124453,NA,NA,https://www.medrxiv.org/content/10.1101/2020.06.08.20124453v1,2020-06-12,NA,NA
+tri02901,see `trials`,keywords,full_results_journal_article,pubmed,10.1056/NEJMoa2019014,32706953,NA,NA,2020-07-23,NA,NA
+tri02914,see `trials`,trn,other,google_scholar,NA,NA,NA,https://www.preprints.org/manuscript/202009.0240/v1,2020-09-11,NA,NA
+tri02914,see `trials`,trn,full_results_preprint,europe_pmc,10.1101/2020.05.27.20110601,NA,NA,https://www.medrxiv.org/content/10.1101/2020.05.27.20110601v1,2020-06-02,NA,NA
+tri02914,see `trials`,trn,full_results_journal_article,google_scholar,NA,NA,NA,https://austinpublishinggroup.com/pharmacology-therapeutics/fulltext/ajpt-v8-id1119.php,2020-09-17,NA,NA
+tri02914,see `trials`,trn,other,google_scholar,NA,NA,NA,http://revmedmilitar.sld.cu/index.php/mil/article/view/926/625,2020-09-30,NA,NA
+tri02918,see `trials`,trn,full_results_preprint,google_scholar,10.1101/2020.09.03.20187112,NA,NA,https://www.medrxiv.org/content/10.1101/2020.09.03.20187112v2,2020-09-15,NA,NA
+tri02934,see `trials`,registry,full_results_journal_article,NA,10.1038/s41467-020-19056-6,33082342,NA,https://www.nature.com/articles/s41467-020-19056-6,2020-10-20,NA,NA
+tri02934,see `trials`,registry,full_results_journal_article,NA,10.1038/s41467-020-19056-6,33082342,NA,https://www.nature.com/articles/s41467-020-19056-6,2020-10-20,2020-05-25,NA
+tri02934,see `trials`,trn,full_results_preprint,europe_pmc,10.21203/rs.3.rs-44055/v1,NA,NA,https://www.researchsquare.com/article/rs-44055/v1,2020-07-17,NA,NA
+tri02934,see `trials`,registry,other,NA,10.1186/s13063-020-04420-0,32503662,NA,https://trialsjournal.biomedcentral.com/articles/10.1186/s13063-020-04420-0,2020-06-05,NA,protocol
+tri03028,see `trials`,keywords,other,google_scholar,10.1158/1557-3265.COVID-19-S05-02,NA,NA,https://clincancerres.aacrjournals.org/content/26/18_Supplement/S05-02.abstract,2020-09-01,NA,Abstract
+tri03028,see `trials`,registry,full_results_preprint,NA,10.1101/2020.07.20.20157503,NA,NA,https://www.medrxiv.org/content/10.1101/2020.07.20.20157503v1,2020-07-26,NA,NA
+tri03183,see `trials`,registry,summary_results,NA,NA,NA,NA,https://www.clinicaltrialsregister.eu/ctr-search/trial/2020-001243-15/results,2021-01-03,NA,NA
+tri03183,see `trials`,trn,full_results_preprint,europe_pmc,10.2139/ssrn.3731461,NA,NA,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3731461,2020-12-10,NA,NA
+tri03202,see `trials`,trn,full_results_preprint,europe_pmc,10.1101/2020.10.25.20219337,NA,NA,https://www.medrxiv.org/content/10.1101/2020.10.25.20219337v1,2020-10-27,2020-05-30,NA
+tri03275,see `trials`,trn,full_results_preprint,google,10.1101/2020.10.15.20213553,NA,NA,https://www.medrxiv.org/content/10.1101/2020.10.15.20213553v2,2020-10-21,NA,NA
+tri03275,see `trials`,trn,full_results_preprint,google_scholar,10.2139/ssrn.3680611,32864128,NA,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3680611,2020-10-14,NA,NA
+tri03276,see `trials`,trn,full_results_preprint,europe_pmc,10.1101/2020.07.20.20157651,NA,NA,https://europepmc.org/article/PPR/PPR192214,2020-07-26,NA,NA
+tri03276,see `trials`,trn,full_results_journal_article,europe_pmc,10.1093/cid/ciaa1009,32674126,NA,NA,2020-07-16,NA,Early Treatment
+tri03276,see `trials`,keywords,full_results_preprint,google_scholar,10.2139/ssrn.3615997,NA,NA,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3615997,2020-07-16,NA,NA
+tri03277,see `trials`,registry,full_results_journal_article,NA,10.1056/NEJMoa2016638,32492293,NA,NA,2020-06-03,2020-05-06,NA
+tri03277,see `trials`,registry,full_results_journal_article,NA,10.7326/M20-4207,32673060,NA,https://www.acpjournals.org/doi/10.7326/M20-4207,2020-07-16,2020-06-15,"last patient last date is not last data, so chose later date: ""follow-up concluded on 20 May, and final hospital outcomes were known by 15 June 2020"""
+tri03277,see `trials`,trn,other,pubmed,10.1093/ofid/ofaa500,33204764,NA,NA,2020-10-19,NA,secondary analysis
+tri03277,see `trials`,registry,other,NA,10.1007/s12630-020-01684-7,32383125,NA,https://link.springer.com/article/10.1007/s12630-020-01684-7,2020-05-07,NA,protocol
+tri03303,see `trials`,registry,full_results_journal_article,NA,10.1093/cid/ciaa1177,32785710,NA,https://academic.oup.com/cid/advance-article/doi/10.1093/cid/ciaa1177/5891816,2020-08-12,2020-06-16,NA
+tri03309,see `trials`,registry,full_results_journal_article,NA,10.1001/jamainternmed.2020.6615,33080005,NA,https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2772186,2020-10-20,2020-06-11,"On June 11, 2020, the trial Scientific Committee decided to interrupt the study for futility with an enrollment of 126 patients."
+tri03312,see `trials`,trn,full_results_preprint,europe_pmc,10.21203/rs.3.rs-83677/v1,NA,NA,https://www.researchsquare.com/article/rs-83677/v1,2020-09-29,NA,NA
+tri03326,see `trials`,trn,full_results_preprint,europe_pmc,10.1101/2020.11.02.20224303,NA,NA,https://www.medrxiv.org/content/10.1101/2020.11.02.20224303v1,2020-11-04,NA,NA
+tri03327,see `trials`,registry,full_results_journal_article,NA,10.1056/NEJMoa2028836,33085857,NA,https://www.nejm.org/doi/10.1056/NEJMoa2028836,2020-10-21,NA,NA
+tri03358,see `trials`,trn,full_results_journal_article,europe_pmc,10.1093/ofid/ofaa446,33134417,NA,https://academic.oup.com/ofid/article/7/10/ofaa446/5910201,2020-09-23,NA,NA
+tri03436,see `trials`,registry,summary_results,NA,NA,NA,NA,https://clinicaltrials.gov/ct2/show/results/NCT04410159,2020-07-21,NA,NA
+tri03458,see `trials`,registry,summary_results,NA,NA,NA,NA,https://clinicaltrials.gov/ct2/show/results/NCT04422561,2020-08-27,NA,NA
+tri03458,see `trials`,registry,other,NA,NA,NA,NA,https://clinicaltrials.gov/ProvidedDocs/61/NCT04422561/Prot_SAP_000.pdf,2020-05-31,NA,protocol
+tri03558,see `trials`,keywords,full_results_journal_article,google,NA,32920571,NA,https://europepmc.org/article/med/32920571,2020-09-01,NA,no doi from journal
+tri03558,see `trials`,keywords,full_results_preprint,google,10.1101/2020.06.24.20121905,NA,NA,https://www.medrxiv.org/content/10.1101/2020.06.24.20121905v1?versioned=true,2020-06-29,NA,NA
+tri03558,see `trials`,registry,other,NA,NA,NA,NA,https://clinicaltrials.gov/ProvidedDocs/24/NCT04441424/Prot_SAP_000.pdf,2020-06-01,NA,protocol
+tri03746,see `trials`,results_check,interim_results_preprint,NA,10.1101/2020.06.22.20137273,NA,ocguwlam,http://medrxiv.org/cgi/content/short/2020.06.22.20137273v1?rss=1,2020-06-22,NA,NA
+tri03746,see `trials`,registry,interim_result,NA,10.1056/NEJMoa2021436,32678530,NA,https://www.nejm.org/doi/10.1056/NEJMoa2021436,2020-07-17,NA,NA
+tri03746,see `trials`,registry,interim_results_journal_article,NA,10.1016/S0140-6736(20)32013-4,33031764,NA,https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)32013-4/fulltext,2020-10-05,NA,NA
+tri03746,see `trials`,registry,full_results_journal_article,NA,10.1056/NEJMoa2022926,33031652,NA,https://www.nejm.org/doi/10.1056/NEJMoa2022926,2020-11-19,NA,NA
+tri03746,see `trials`,registry,interim_results_preprint,NA,10.1101/2020.12.10.20245944,NA,NA,NA,2020-12-14,NA,NA
+NA,NCT04323527,results_check,interim_results_preprint,NA,10.1101/2020.04.07.20056424,NA,ifxm3j4y,https://doi.org/10.1101/2020.04.07.20056424,2020-04-11,NA,NA
+NA,NCT04323527,results_check,interim_results_journal_article,NA,10.1001/jamanetworkopen.2020.8857,32330277,NA,NA,2020-04-24,NA,NA
+NA,no TRN found,results_check,full_results_journal_article,NA,10.1126/sciimmunol.abd0110,32503877,uejtwgar,https://doi.org/10.1126/sciimmunol.abd0110; https://www.ncbi.nlm.nih.gov/pubmed/32503877/,2020-06-05,NA,NA
+NA,no TRN found,results_check,full_results_journal_article,NA,10.13703/j.0255-2930.20200224-k0004,32394650,NA,NA,2020-05-01,NA,NA
+NA,no TRN found,results_check,full_results_journal_article,NA,10.1016/j.jaci.2020.05.019,32470486,NA,NA,2020-05-26,NA,NA
+NA,no TRN found,results_check,full_results_journal_article,NA,10.1089/scd.2020.0080,32380908,NA,NA,2020-06-11,NA,NA
+NA,no TRN found,results_check,full_results_journal_article,NA,10.1016/j.ctcp.2020.101166,32379637,NA,NA,2020-04-01,NA,NA
