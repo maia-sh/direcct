@@ -7,10 +7,10 @@ cran_pkgs <- c("dplyr", "tidyr", "stringr", "glue", "purrr", "forcats", "readr",
                "janitor", "writexl",
                "fs",
                "gt",
-               "knitr",
+               "knitr", "scales",
                #"irr",
                # "viridis",
-               "see",
+               # "see",
                "assertr"
 )
 to_install <- cran_pkgs[!cran_pkgs %in% installed.packages()]
