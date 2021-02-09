@@ -1,6 +1,10 @@
 # Prior to manual search, we deduplicated known cross-registrations (in previous Python steps based on ND TrialsTracker). Since we found additional cross-registrations through the search, we deduplicate again.
 
+source(here::here("R", "environment.R"), echo = FALSE)
+
 # Tidy registrations ------------------------------------------------------
+# trials <- read_csv(here("data", "trials.csv"))
+trials <- read_rds(here("data", "processed", "cleaned-trials.rds"))
 
 # Get registrations from manual search, plus "primary"
 registrations <-
@@ -54,8 +58,8 @@ ictrp_cross_reg <-
                values_to = "trn", values_drop_na = TRUE#,
                # values_transform = list(n_trn = as.numeric)
   ) %>%
-  mutate(n_trn = as.numeric(n_trn)) %>%
-  mutate(registry = ctregistries::which_registries(trn))
+  mutate(n_trn = as.numeric(n_trn)) #%>%
+  # mutate(registry = ctregistries::which_registries(trn))
 
 # Combine various registrations, removing duplicates (i.e., if a registration is in both the manual and input dataset)
 # registrations <-
@@ -66,35 +70,19 @@ registrations <-
   bind_rows(registrations, .) %>%
 
   # Remove duplicate registrations for the same trial, same registry
-  distinct(id, trn) %>%
+  distinct(id, trn, .keep_all = TRUE) %>%
 
   # Renumber TRNs (since current numbers don't account for various sources)
   # TODO: If ND has order preference, arrange() here
   group_by(id) %>%
   mutate(n_trn = row_number()) %>%
-  ungroup()
+  ungroup() %>%
 
-# TODO: unify `registry` to common names
+  # Update all registries based on TRN
+  # There are discrepancies between ICTRP and ctregistries (e.g., ICTRP uses JPRN only, where as ctregistries distinguishes registries)
+  mutate(registry = ctregistries::which_registries(trn))
+
 # NOTE: could add registration unique id
 
-write_csv(registrations, here("data", "registrations.csv"))
-
-
-# Inspect duplicate registrations/trials ----------------------------------
-
-# Some (n = 35) trials in out database are duplicates based on cross-registrations we identified
-# We need to decide how to deduplicate.
-
-duplicate_registrations <-
-  janitor::get_dupes(registrations, trn)
-
-duplicate_trials <-
-  trials %>%
-
-  # Remove registration columns
-  # select(-trialid, -source_register, -starts_with("cross_reg")) %>%
-
-  filter(id %in% duplicate_trials$id)
-
-write_csv(duplicate_registrations, here("data", "duplicate_registrations.csv"))
-write_csv(duplicate_trials, here("data", "duplicate_trials.csv"))
+write_rds(registrations, here("data", "processed", "cleaned-registrations.rds"))
+# write_csv(registrations, here("data", "registrations.csv"))

@@ -1,5 +1,7 @@
 # Clean and combine results
 
+source(here::here("R", "environment.R"), echo = FALSE)
+
 # Get raw results data ----------------------------------------------------
 
 # Manual results: From manual trial screening and subsequent search. Available in "data-raw".
@@ -15,7 +17,9 @@ manual_verified_results <-
 
 # We also need to get trial ids to add to results
 trials_ids <-
-  read_csv(here("data", "trials-ids.csv"))
+  # read_csv(here("data", "trials-ids.csv"))
+  read_rds(here("data", "processed", "cleaned-trials.rds")) %>%
+  select(id, trialid)
 
 # If a result without a TRN from manual results verification was later found via trial results search and thus associated with a trial id, we do not need to join this result in
 # Note: None of the results without TRN found in trial results search
@@ -51,4 +55,5 @@ results <-
 
 # NOTE: could add result unique id
 
-write_csv(results, here("data", "results.csv"))
+write_rds(results, here("data", "processed", "cleaned-results.rds"))
+# write_csv(results, here("data", "results.csv"))

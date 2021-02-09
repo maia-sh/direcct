@@ -1,3 +1,5 @@
+source(here::here("R", "environment.R"), echo = FALSE)
+
 # Get raw trials data -----------------------------------------------------
 
 # ICTRP: pre-processed and sourced from Python repo
@@ -144,9 +146,10 @@ trials <-
 # TODO: remove  trial registration columns in separate script after cleaning registrations, or save out columns separately
 # trialid, source_register, starts_with("cross_reg_")
 
-write_csv(trials, here("data", "trials.csv"))
+write_rds(trials, here("data", "processed", "cleaned-trials.rds"))
+# write_csv(trials, here("data", "trials.csv"))
 
 # Save out ids and trialids as lookup table for results
-trials %>%
-  select(id, trialid) %>%
-  write_csv(here("data", "trials-ids.csv"))
+# trials %>%
+#   select(id, trialid) %>%
+#   write_csv(here("data", "trials-ids.csv"))
