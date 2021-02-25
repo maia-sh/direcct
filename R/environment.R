@@ -1,9 +1,9 @@
 # Install and load packages
 
-cran_pkgs <- c("dplyr", "tidyr", "stringr", "glue", "purrr", "forcats", "readr", "here",
+cran_pkgs <- c("dplyr", "tidyr", "stringr", "glue", "purrr", "forcats", "readr", "here", "lubridate",
                # "tidylog",
                "rlang",
-               "ggplot2", "ggupset",
+               "ggplot2", "ggupset", "ggtext", "ggVennDiagram", "gtsummary",
                "janitor", "writexl",
                "fs",
                "gt",
@@ -11,7 +11,10 @@ cran_pkgs <- c("dplyr", "tidyr", "stringr", "glue", "purrr", "forcats", "readr",
                #"irr",
                # "viridis",
                # "see",
-               "assertr"
+               "assertr",
+
+               # KM
+               "survival", "survminer"
 )
 to_install <- cran_pkgs[!cran_pkgs %in% installed.packages()]
 

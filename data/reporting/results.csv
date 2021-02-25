@@ -1,4 +1,4 @@
-id_trial,trn,search_type,pub_type,search_engine,doi,pmid,cord_id,url,date_publication,date_completion,comments
+id,trn,search_type,pub_type,search_engine,doi,pmid,cord_id,url,date_publication,date_completion,comments
 tri00002,see `trials`,results_check,full_results_preprint,NA,10.1101/2020.03.19.20038984,NA,9hknw4ws,https://doi.org/10.1101/2020.03.19.20038984,2020-04-15,NA,NA
 tri00002,see `trials`,results_check,full_results_journal_article,NA,10.1016/j.medj.2020.04.001,NA,ytqjxzaa,https://doi.org/10.1016/j.medj.2020.04.001; https://www.sciencedirect.com/science/article/pii/S2666634020300015?v=s5; https://api.elsevier.com/content/article/pii/S2666634020300015,2020-05-04,NA,NA
 tri00022,see `trials`,trn,full_results_journal_article,pubmed,10.1002/advs.202001435,32837847,NA,https://onlinelibrary.wiley.com/doi/10.1002/advs.202001435,2020-07-14,NA,NA

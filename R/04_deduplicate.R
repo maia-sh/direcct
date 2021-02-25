@@ -190,10 +190,12 @@ deduped_results <-
   results %>%
   # semi_join(duplicate_trial_lookup, by = c("id_trial" = "id")) %>%
   # Join in dupe info
-  left_join(duplicate_trial_lookup, by = c("id_trial" = "id")) %>%
+  # left_join(duplicate_trial_lookup, by = c("id_trial" = "id")) %>%
+  left_join(duplicate_trial_lookup, by = "id") %>%
 
   # If id is_dupe, then replace id with dupe_primary
-  mutate(id_trial = if_else(is_dupe, dupe_primary, id_trial, missing = id_trial)) %>%
+  # mutate(id_trial = if_else(is_dupe, dupe_primary, id_trial, missing = id_trial)) %>%
+  mutate(id = if_else(is_dupe, dupe_primary, id, missing = id)) %>%
 
   select(-is_dupe, -dupe_primary)
 

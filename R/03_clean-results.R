@@ -10,10 +10,10 @@ source(here::here("R", "environment.R"), echo = FALSE)
 # Note: Additional trials discovered via manual results verification are NOT included in the trials dataset, since we per protocol consider trials only from the ICTRP COVID dataset. We do capture these additional results, which may be linked to trials in later rounds, if trials added to ICTRP COVID dataset.
 
 manual_results <-
-  read_csv(latest("manual-results.csv", here("data-raw")))
+  read_csv(latest("manual-results.csv", here("data", "raw")))
 
 manual_verified_results <-
-  read_csv(latest("manual-verified-results.csv", here("data-raw")))
+  read_csv(latest("manual-verified-results.csv", here("data", "raw")))
 
 # We also need to get trial ids to add to results
 trials_ids <-
@@ -41,15 +41,16 @@ results_no_trn <-
     date_publication = as.Date(date_publication)
   )
 
+# 2021-02-11: Change `id_trial` to `id` to keep consistent name across database
 results <-
   manual_results %>%
 
   # Add in database trial identifiers
   # Note: could remove TRNs for trials in database
   right_join(trials_ids, ., by = "trialid") %>%
-  rename(id_trial = id#, trn = trialid, everything()
-  ) %>%
-  mutate(trn = if_else(is.na(id_trial), trialid, "see `trials`"), .after = id_trial) %>%
+  # rename(id_trial = id#, trn = trialid, everything()
+  # ) %>%
+  mutate(trn = if_else(is.na(id), trialid, "see `trials`"), .after = id) %>%
   select(-trialid) %>%
   bind_rows(results_no_trn)
 

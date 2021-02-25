@@ -3,3 +3,6 @@
 .RData
 notes/
 R/dep/
+R/misc/
+data/reporting/dep/
+docs/

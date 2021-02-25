@@ -37,7 +37,7 @@ registry_data <-
   mutate(registry_scraped = TRUE)
 
 manual_trials <-
-  read_csv(latest("manual-trials.csv", here("data-raw"))) %>%
+  read_csv(latest("manual-trials.csv", here("data","raw"))) %>%
 
   # Drop `source_register` since same as original ICTRP trials dataset
   select(-source_register)
