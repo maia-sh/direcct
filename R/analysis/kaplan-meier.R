@@ -56,12 +56,26 @@ summary_pub_dates <-
   distinct(id, .keep_all = TRUE) %>%
   ungroup()
 
+# Add interim results for sensitivity analysis
+results_w_interim_pub_dates <-
+  all_results %>%
+  filter(is_trial_included & is_pub_date_cutoff_1 &
+           str_detect(pub_type, "other", negate = TRUE)
+  ) %>%
+  select(id, date_publication_any_w_interim = date_publication) %>%
+  group_by(id) %>%
+  arrange(date_publication_any_w_interim, .by_group = TRUE) %>%
+  distinct(id, .keep_all = TRUE) %>%
+  ungroup()
+
 pub_dates <-
   results_pub_dates %>%
   full_join(article_pub_dates, by = "id") %>%
   full_join(preprint_pub_dates, by = "id") %>%
-  full_join(summary_pub_dates, by = "id")
+  full_join(summary_pub_dates, by = "id") %>%
+  full_join(results_w_interim_pub_dates, by = "id")
 
+rm(results_pub_dates, article_pub_dates, preprint_pub_dates, summary_pub_dates, results_w_interim_pub_dates)
 
 # Prepare kaplan-meier data -----------------------------------------------
 
@@ -79,6 +93,7 @@ km_data <-
     publication_article = if_else(!is.na(date_publication_article), TRUE, FALSE),
     publication_preprint = if_else(!is.na(date_publication_preprint), TRUE, FALSE),
     publication_summary = if_else(!is.na(date_publication_summary), TRUE, FALSE),
+    publication_any_w_interim = if_else(!is.na(date_publication_any_w_interim), TRUE, FALSE),
 
     time_publication_any =
       if_else(publication_any,
@@ -99,6 +114,11 @@ km_data <-
       if_else(publication_summary,
               lubridate::as.duration(date_completion %--% date_publication_summary)/ ddays(1),
               lubridate::as.duration(date_completion %--% date_cutoff)/ ddays(1)
+      ),
+    time_publication_any_w_interim =
+      if_else(publication_any,
+              lubridate::as.duration(date_completion %--% date_publication_any_w_interim)/ ddays(1),
+              lubridate::as.duration(date_completion %--% date_cutoff)/ ddays(1)
       )
   )
 
@@ -108,6 +128,8 @@ write_csv(km_data, here("data", "reporting", "kaplan-meier-time-to-pub.csv"))
 # summary(km_fit, times = 100)
 # ci_plot$plot +
 #   scale_y_reverse()
+# library(patchwork)
+# km_plot_any + km_plot_article
 # Note: not working with pipe
 
 
@@ -217,6 +239,28 @@ km_plot_summary <-
     ylab = "Cumulative events" #"Overall survival probability"
   )
 
-# library(patchwork)
-# km_plot_any + km_plot_article
+
+# Do additional time-to-pub analyses --------------------------------------
+
+# Time to summary results
+n_days_summary <-
+  km_data %>%
+  filter(publication_summary) %>%
+  pull(time_publication_summary) %>%
+  sort() %>%
+  glue_collapse(sep = ", ", last = " and ")
+
+
+# Trials with both preprint and article
+preprint_article <-
+  km_data %>%
+  filter(publication_article & publication_preprint) %>%
+  mutate(
+    preprint_to_article = lubridate::as.duration(date_publication_preprint %--% date_publication_article)/ ddays(1)
+  )
+
+n_preprint_article <- nrow(preprint_article)
+median_preprint_article <- median(preprint_article$preprint_to_article)
+iqr_preprint_article <- IQR(preprint_article$preprint_to_article)
+
 
