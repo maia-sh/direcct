@@ -36,6 +36,13 @@ registrations <-
     str_detect(trn, "EUCTR20\\d{2}\\W*0\\d{5}\\W*\\d{2}"),
     str_remove(trn, "-[A-Z]{2}"),
     trn
+  )) %>%
+
+  # Add EUCTR prefix when missing (n = 1)
+  mutate(trn = if_else(
+    str_detect(trn, "^20"),
+    str_c("EUCTR", trn),
+    trn
   ))
 
 # Get additional cross-registrations from input dataset
