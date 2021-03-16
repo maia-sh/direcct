@@ -61,8 +61,8 @@ pub_dates_3_mo <-
   results_pub_dates %>%
   full_join(article_pub_dates, by = "id") %>%
   full_join(preprint_pub_dates, by = "id") %>%
-  full_join(summary_pub_dates, by = "id") %>%
-  full_join(results_w_interim_pub_dates, by = "id")
+  full_join(summary_pub_dates, by = "id") #%>%
+  # full_join(results_w_interim_pub_dates, by = "id")
 
 rm(results_pub_dates, article_pub_dates, preprint_pub_dates, summary_pub_dates)
 
@@ -105,4 +105,4 @@ km_data_3_mo <-
       )
   )
 
-write_csv(km_data, here("data", "reporting", "kaplan-meier-time-to-pub_3-mo.csv"))
+write_csv(km_data_3_mo, here("data", "reporting", "kaplan-meier-time-to-pub_3-mo.csv"))
