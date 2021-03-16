@@ -75,7 +75,7 @@ km_data_3_mo <-
   left_join(pub_dates_3_mo, by = "id") %>%
   mutate(
 
-    date_cutoff = lubridate::ymd("2020-08-15"),
+    date_cutoff = lubridate::ymd("2020-10-01"),
 
     # Create binaries and times for KM analysis
     publication_any = if_else(!is.na(date_publication_any), TRUE, FALSE),
