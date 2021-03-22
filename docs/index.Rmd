@@ -15,42 +15,11 @@ source(here::here("R", "environment.R"), echo = FALSE)
 registrations <- read_csv(here("data", "reporting", "registrations.csv"))
 ```
 
-# Methods
-
-## Search dates
-
-```{r qualtrics-search-dates}
-
-qualtrics_raw <-
-  read_csv(here("data", "raw", "qualtrics-results-search.csv"), skip = 1)
-
-qualtrics_clean <-
-  qualtrics_raw %>%
-
-  slice(-1) %>%
-
-  # Clean up datatypes and colnames
-  readr::type_convert() %>%
-  janitor::clean_names()
-
-qualtrics_clean %>%
-  filter(finished & progress == 100) %>%
-  summarize(start = min(start_date), end = max(end_date))
-
-```
-
-# Results
-
-## Trial screening
-
 ```{r trial-screening}
 all_trials <- read_csv(here("data", "reporting", "trials.csv"))
 source(here("R", "analysis", "screen-trials.R"))
 ```
 
-As of 30 June 2020, the ICTRP COVID-19 database contained `r n_ictrp` registered trials. Following all automated and manual exclusions, our final analysis dataset included `r n_not_dupe` completed clinical trials. Details of all exclusions is available in Figure X. Brief descriptive details of the `r n_not_dupe` trials are included in Table X.
-
-## Per protocol analysis
 
 ```{r all-results}
 
@@ -80,6 +49,118 @@ n_full_results <- nrow(results)
 n_trials_w_results <- n_distinct(results$id)
 p_trials_w_results <- n_trials_w_results/ n_not_dupe
 ```
+
+# Methods
+
+## Search dates
+
+```{r qualtrics-search-dates}
+
+qualtrics_raw <-
+  read_csv(here("data", "raw", "qualtrics-results-search.csv"), skip = 1)
+
+qualtrics_clean <-
+  qualtrics_raw %>%
+
+  slice(-1) %>%
+
+  # Clean up datatypes and colnames
+  readr::type_convert() %>%
+  janitor::clean_names()
+
+qualtrics_clean %>%
+  filter(finished & progress == 100) %>%
+  summarize(start = min(start_date), end = max(end_date))
+
+```
+
+# Results
+
+## Trial screening
+
+As of 30 June 2020, the ICTRP COVID-19 database contained `r n_ictrp` registered trials. Following all automated and manual exclusions, our final analysis dataset included `r n_not_dupe` completed clinical trials. Details of all exclusions is available in Figure X. Brief descriptive details of the `r n_not_dupe` trials are included in Table X.
+
+## Trials summary table
+```{r trials-summary}
+
+cross_registrations <-
+  registrations %>% 
+  semi_join(trials, by = "id") %>%
+  group_by(id) %>% 
+  mutate(
+    n_reg = n(),
+    cross_registry = if_else(n_reg == 1, registry, "Cross-registered")
+  ) %>% 
+  distinct(id, .keep_all = TRUE) %>% 
+  select(id, cross_registry) #%>% 
+  # right_join(trials, by = "id")
+
+tbl_trials <-
+  trials %>%
+  
+  left_join(cross_registrations, by = "id") %>% 
+  
+  mutate(
+    has_result = if_else(id %in% unique(results$id), "With Results", "Without Results"),
+    
+    # Collapse multinational (i.e., with comma)
+    countries = if_else(str_detect(countries, ","), "Multinational", countries),
+  ) %>% 
+    
+    # Group countries with fewer than 4 trials (overall)
+    # add_count() %>%
+    group_by(countries) %>%
+    mutate(
+      n_countries = n(),
+      countries = if_else(n_countries <= 4, "Countries w/ <5 trials", countries)
+    ) %>%
+  
+  select(has_result, 
+         target_enrollment, 
+         study_type, 
+         phase, 
+         cross_registry, 
+         countries
+  ) %>%
+
+  gtsummary::tbl_summary(
+    by = has_result, 
+    type = all_continuous() ~ "continuous2",
+    statistic = all_continuous() ~ c("{N_nonmiss}",
+                                     "{median} ({p25}, {p75})", 
+                                     "{min}, {max}"),
+    missing = "no",
+    label = list(
+      target_enrollment ~ "Target enrollment",
+      study_type ~ "Study type", 
+      phase ~ "Phase", 
+      cross_registry ~ "Registry", 
+      countries ~ "Countries"
+    ),
+    sort = list(
+      cross_registry ~ "frequency", 
+      countries ~ "frequency"
+    ),
+  ) %>%
+  
+  add_overall() %>% 
+  
+  add_difference(include = target_enrollment) %>%
+
+  # modify_header(label = "**Publication Type**") %>%
+
+  bold_labels() %>% 
+  modify_spanning_header(all_stat_cols() ~ "**Results Disseminated**") %>% 
+  modify_caption("**Trial Characteristics** (N = {N})") #%>% 
+  #remove_row_type(study_type, type = "header")
+
+# show_header_names(tbl)
+tbl_trials
+```
+
+## Per protocol analysis
+
+
 
 Using our per-protocol criteria, we located `r n_full_results` full results published before 16 August 2020 for `r n_trials_w_results`of the`r n_not_dupe`(`r style_percent(p_trials_w_results, symbol = TRUE)`) trials registered as completed by 30 June 2020. The breakdown of results by dissemination route is detailed in Figure X [The venn diagram]. Figure Y details the reporting of results by registry.
 
