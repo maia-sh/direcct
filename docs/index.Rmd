@@ -32,7 +32,7 @@ registrations <- read_csv(here("data", "reporting", "registrations.csv"))
 
 ```{r trial-screening}
 all_trials <- read_csv(here("data", "reporting", "trials.csv"))
-source(here("R", "analysis", "screen-trials.R"))
+source(here("docs", "analysis", "screen-trials.R"))
 ```
 
 
@@ -103,14 +103,14 @@ Using our per-protocol criteria, we located `r n_full_results` full results publ
 Data for KM plots is available at [kaplan-meier-time-to-pub.csv](https://github.com/maia-sh/direcct/blob/master/data/reporting/kaplan-meier-time-to-pub.csv).
 
 ```{r kaplan-meier}
-source(here("R", "analysis", "kaplan-meier.R"))
+source(here("docs", "analysis", "kaplan-meier.R"))
 ```
 
 Figure Z shows time-to-publication using Kaplan-Meier (K-M) curves. Per protocol, we use the latest trial completion date reported in a publication when available (n = `r n_trials_pub_cd`), and otherwise the completion date reported in the registry, preferring the primary completion date to the study completion date, when available. For trials with multiple publications, we select the earliest publication date for the specified dissemination route. Trials with a publication date prior to the available completion date were considered reported at time 0 (n = `r n_any_pre` any publication; n = `r n_article_pre` journal articles, n = `r n_preprint_pre` preprints). We show time from completion to: a) first publication across any dissemination route, b) journal publication, and c) preprint publication. As no method of reporting crossed 50%, we could not generate a median time to publication. As only two trials reported results to a registry, we did generate a K-M plot for this route. Summary results for these two trials were published on `r summary_results_registry` `r n_days_summary` days following completion. For the `r n_preprint_article` trials that had both a preprint and a journal publication, the median days from first preprint publication to journal publication was `r median_preprint_article` (IQR = `r iqr_preprint_article`, range = `r min_preprint_article`, `r max_preprint_article`).
 
 ## Sensitivity Analyses
 ```{r sensitivity-analyses}
-source(here("R", "analysis", "sensitivity-analyses.R"))
+source(here("docs", "analysis", "sensitivity-analyses.R"))
 ```
 Whereas our per-protocol analysis relies on the trial completion date on the registry on 30 June 2020, we considered trial results reporting using the latest available completion date for the `r n_not_dupe` trials included in the main analysis. The 30 June 2020 registry completion date was superseded by a later completion date reported in a publication (regardless of whether the publication was included in our analysis) for n = `r n_latest_cd_pub` trials and a later completion date found on the registry during manual searches for n = `r n_latest_cd_manual` trials. Considering these updated completion dates, `r n_sa_trials_complete` trials were completed by 30 June per their latest available completion date, of which `r n_sa_trials_complete_results` trials (`r style_percent(p_sa_trials_complete_results, symbol = TRUE)`) had full results available by 16 August 2020.
 
@@ -130,37 +130,37 @@ Through our automated and manual publication search strategies, we found a total
 
 ## Table: Trials summary
 ```{r tbl-trials}
-# source(here("R", "analysis", "tbl-trials.R"))
+# source(here("docs", "analysis", "tbl-trials.R"))
 knitr::include_graphics(here("docs", "figures", "tbl-trials.png"))
 ```
 
 ## Figure: Results by registry
 ```{r plot-registrations}
-# source(here("R", "analysis", "plot-registrations.R"))
+# source(here("docs", "analysis", "plot-registrations.R"))
 knitr::include_graphics(here("docs", "figures", "plot-registrations-results.png"))
 ```
 
 ## Figure: Publication types (bar plot)
 ```{r plot-pub-types-bar}
-# source(here("R", "analysis", "plot-pub-types.R"))
+# source(here("docs", "analysis", "plot-pub-types.R"))
 knitr::include_graphics(here("docs", "figures", "plot-pubs.png"))
 ```
 
 ## Figure: Publication types (upset plot)
 ```{r plot-pub-types-upset}
-# source(here("R", "analysis", "plot-pub-types.R"))
+# source(here("docs", "analysis", "plot-pub-types.R"))
 knitr::include_graphics(here("docs", "figures", "plot-pubs-upset.png"))
 ```
 
 ## Figure: Publication types (venn plot, ggVennDiagram)
 ```{r plot-pub-types-venn-ggVennDiagram}
-# source(here("R", "analysis", "plot-pub-types.R"))
+# source(here("docs", "analysis", "plot-pub-types.R"))
 knitr::include_graphics(here("docs", "figures", "plot-pubs-venn-ggVennDiagram.png"))
 ```
 
 ## Figure: Publication types (venn plot, eurlerr)
 ```{r plot-pub-types-venn-eulerr}
-# source(here("R", "analysis", "plot-pub-types.R"))
+# source(here("docs", "analysis", "plot-pub-types.R"))
 knitr::include_graphics(here("docs", "figures", "plot-pubs-venn-eulerr.png"))
 ```
 
