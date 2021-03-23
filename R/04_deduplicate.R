@@ -123,6 +123,8 @@ deduped_trials <-
   trials %>%
   left_join(duplicate_trial_lookup, by = "id") %>%
 
+  mutate(is_dupe = replace_na(is_dupe, FALSE)) %>%
+
   # Remove extraneous registration info from {trials}
   # Keep trialid and source_register because this shows where registry info from, in case `n_trn` order is not exact match in {registries}
 
