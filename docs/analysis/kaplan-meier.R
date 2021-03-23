@@ -250,6 +250,13 @@ n_days_summary <-
   sort() %>%
   glue_collapse(sep = ", ", last = " and ")
 
+summary_results_registry <-
+  km_data %>%
+  filter(publication_summary) %>%
+  semi_join(registrations, ., by = "id") %>%
+  distinct(registry) %>%
+  pull(registry) %>%
+  glue_collapse(sep = ", ", last = " and ")
 
 # Trials with both preprint and article
 preprint_article <-
@@ -262,5 +269,7 @@ preprint_article <-
 n_preprint_article <- nrow(preprint_article)
 median_preprint_article <- median(preprint_article$preprint_to_article)
 iqr_preprint_article <- IQR(preprint_article$preprint_to_article)
+min_preprint_article <- min(preprint_article$preprint_to_article)
+max_preprint_article <- max(preprint_article$preprint_to_article)
 
 

@@ -93,4 +93,4 @@ n_dupe_ex <- report_n(screening_counts, "is_not_dupe", FALSE)
 
 # Return screening info ---------------------------------------------------
 
-rm(count_filter, screening_criteria, screened_trials)
+rm(screening_criteria, screened_trials)

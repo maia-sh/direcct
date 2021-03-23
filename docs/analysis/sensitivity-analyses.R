@@ -155,3 +155,65 @@ n_sa_trials_results_3_mo <-
 
 p_sa_trials_results_3_mo <- n_sa_trials_results_3_mo/n_not_dupe
 
+
+# Additional analysis: additional results ---------------------------------
+# Analyze results excluded from per protocol analysis
+
+all_results_for_screening <-
+  all_results %>%
+
+  # Join in rcd_auto
+  left_join(select(all_trials, id, rcd_auto), by = "id") %>%
+
+  mutate(
+
+    # Is result included in per protocol analysis?
+    in_pp_analysis =
+      if_else(is_trial_included & is_pub_date_cutoff_1 & is_pub_main, TRUE, FALSE),
+    not_in_pp_analysis =
+      if_else(!in_pp_analysis | is.na(in_pp_analysis), TRUE, FALSE),
+
+    # Does result have a trn?
+    has_trn = if_else(trn != "no TRN found", TRUE, FALSE),
+
+    # Does result have a late/missing completion date?
+    has_cd = if_else(!is.na(rcd_auto), TRUE, FALSE),
+    has_cd_pp = if_else(rcd_auto <= "2020-06-30", TRUE, FALSE),
+
+    # Does result have a late/missing publication date?
+    has_pub_date = if_else(!is.na(date_publication), TRUE, FALSE),
+    has_pub_date_pp = if_else(date_publication <= "2020-08-15", TRUE, FALSE)
+  )
+
+results_criteria <- c(
+  "is_pub_main",
+  "not_in_pp_analysis",
+  "has_trn",
+  "has_cd",
+  "has_cd_pp",
+  "has_pub_date",
+  "has_pub_date_pp"
+)
+
+screened_results <-
+  all_results_for_screening %>%
+  count_filter(results_criteria)
+
+unexplained_results <- screened_results$data
+
+results_screening_counts <-
+  screened_results$counts %>%
+  add_row(name = "all_results", value = TRUE, n = nrow(all_results), .before = 1)
+
+n_full_results <- report_n(results_screening_counts, "is_pub_main", TRUE)
+n_incl_pp_results <- report_n(results_screening_counts, "not_in_pp_analysis", FALSE)
+n_excl_pp_results <- report_n(results_screening_counts, "not_in_pp_analysis", TRUE)
+n_no_trn <- report_n(results_screening_counts, "has_trn", FALSE)
+n_excl_cd_none <- report_n(results_screening_counts, "has_cd", FALSE)
+n_excl_cd_late <- report_n(results_screening_counts, "has_cd_pp", FALSE)
+n_excl_pub_date_none <- report_n(results_screening_counts, "has_pub_date", FALSE)
+n_excl_pub_date_late <- report_n(results_screening_counts, "has_pub_date_pp", FALSE)
+n_excl_funky <- report_n(results_screening_counts, "has_pub_date_pp", TRUE)
+# tri00042 excluded based on publication which indicated retrospective study
+
+rm(all_results_for_screening, results_criteria, screened_results)
