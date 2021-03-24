@@ -269,7 +269,5 @@ preprint_article <-
 n_preprint_article <- nrow(preprint_article)
 median_preprint_article <- median(preprint_article$preprint_to_article)
 iqr_preprint_article <- IQR(preprint_article$preprint_to_article)
-min_preprint_article <- min(preprint_article$preprint_to_article)
-max_preprint_article <- max(preprint_article$preprint_to_article)
-
-
+q1_preprint_article <- median_preprint_article - iqr_preprint_article/2
+q3_preprint_article <- median_preprint_article + iqr_preprint_article/2

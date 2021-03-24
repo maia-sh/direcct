@@ -82,7 +82,8 @@ plot_registrations_results <-
   guides(fill = "none") +
   labs(
     title = "Result reporting rate per clinical trial registry",
-    caption = "Each registration is counted. If a trial is cross-registered in more than one registry, it is counted for each registration.",
+    cpation = "",
+    # caption = "Each registration is counted. If a trial is cross-registered in more than one registry, it is counted for each registration.",
     # y = "Number of registrations with results reported of total registrations", # Number of registrations (results reported/total)
     # y = glue("Number of",
     #          " <span style='color:{darkred}'>registrations with results reported</span> ",
@@ -118,7 +119,7 @@ theme_minimal(base_size = 15) +
   )
 
 
-ggsave(plot = plot_registrations_results, filename = here("docs", "figures", "plot-registrations-results.png"))
+ggsave(plot = plot_registrations_results, filename = here("docs", "figures", "plot-registrations-results.png"), scale = 1.18)
 
 # Note: issue with ggtext on axis so using textbox
 # https://wilkelab.org/ggtext/

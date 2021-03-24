@@ -118,6 +118,9 @@ trials_pubtype <-
 pub_sets <-
   split(trials_pubtype$id, trials_pubtype$pub_type)
 
+# Save out intersection sets
+write_csv(trials_pubtype, here("data", "reporting", "pub-type-sets.csv"))
+
 # Version 1: {ggVennDiagram}
 plot_pubs_venn_ggVennDiagram <-
 ggVennDiagram::ggVennDiagram(pub_sets,

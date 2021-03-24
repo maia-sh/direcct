@@ -106,7 +106,7 @@ Data for KM plots is available at [kaplan-meier-time-to-pub.csv](https://github.
 source(here("docs", "analysis", "kaplan-meier.R"))
 ```
 
-Figure Z shows time-to-publication using Kaplan-Meier (K-M) curves. Per protocol, we use the latest trial completion date reported in a publication when available (n = `r n_trials_pub_cd`), and otherwise the completion date reported in the registry, preferring the primary completion date to the study completion date, when available. For trials with multiple publications, we select the earliest publication date for the specified dissemination route. Trials with a publication date prior to the available completion date were considered reported at time 0 (n = `r n_any_pre` any publication; n = `r n_article_pre` journal articles, n = `r n_preprint_pre` preprints). We show time from completion to: a) first publication across any dissemination route, b) journal publication, and c) preprint publication. As no method of reporting crossed 50%, we could not generate a median time to publication. As only two trials reported results to a registry, we did generate a K-M plot for this route. Summary results for these two trials were published on `r summary_results_registry` `r n_days_summary` days following completion. For the `r n_preprint_article` trials that had both a preprint and a journal publication, the median days from first preprint publication to journal publication was `r median_preprint_article` (IQR = `r iqr_preprint_article`, range = `r min_preprint_article`, `r max_preprint_article`).
+Figure Z shows time-to-publication using Kaplan-Meier (K-M) curves. Per protocol, we use the latest trial completion date reported in a publication when available (n = `r n_trials_pub_cd`), and otherwise the completion date reported in the registry, preferring the primary completion date to the study completion date, when available. For trials with multiple publications, we select the earliest publication date for the specified dissemination route. Trials with a publication date prior to the available completion date were considered reported at time 0 (n = `r n_any_pre` any publication; n = `r n_article_pre` journal articles, n = `r n_preprint_pre` preprints). We show time from completion to: a) first publication across any dissemination route, b) journal publication, and c) preprint publication. As no method of reporting crossed 50%, we could not generate a median time to publication. As only two trials reported results to a registry, we did generate a K-M plot for this route. Summary results for these two trials were published on `r summary_results_registry` `r n_days_summary` days following completion. For the `r n_preprint_article` trials that had both a preprint and a journal publication, the median days from first preprint publication to journal publication was `r median_preprint_article` (`r q1_preprint_article`, `r q3_preprint_article`).
 
 ## Sensitivity Analyses
 ```{r sensitivity-analyses}
@@ -153,6 +153,9 @@ knitr::include_graphics(here("docs", "figures", "plot-pubs-upset.png"))
 ```
 
 ## Figure: Publication types (venn plot, ggVennDiagram)
+
+Data for publication type sets for venn diagrams is available at [pub-type-sets.csv](https://github.com/maia-sh/direcct/blob/master/data/reporting/pub-type-sets.csv).
+
 ```{r plot-pub-types-venn-ggVennDiagram}
 # source(here("docs", "analysis", "plot-pub-types.R"))
 knitr::include_graphics(here("docs", "figures", "plot-pubs-venn-ggVennDiagram.png"))
