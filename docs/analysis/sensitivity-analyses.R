@@ -217,3 +217,29 @@ n_excl_funky <- report_n(results_screening_counts, "has_pub_date_pp", TRUE)
 # tri00042 excluded based on publication which indicated retrospective study
 
 rm(all_results_for_screening, results_criteria, screened_results)
+
+
+# Additional analysis: cross-registered trials ----------------------------
+# Only primary registries were scraped and completion date from this registration was used for the inclusion criteria. Cross-registered trials may have a different completion date that may have changed the inclusion status.
+# Get cross-registrations for all trials which were excluded based on completion date.
+
+cd_excl_registrations <-
+  all_trials %>%
+
+  # Limit to eligible trials with completion date AFTER cutoff
+  filter(is_eligible_study & !is_rcd_cutoff_1) %>%
+
+  semi_join(registrations, ., by = "id")
+
+n_cd_excl_cross_registations <-
+  cd_excl_registrations %>%
+  filter(n_trn > 1) %>%
+  nrow()
+
+n_cd_excl_trials_w_cross_registations <-
+  cd_excl_registrations %>%
+  filter(n_trn > 1) %>%
+  distinct(id) %>%
+  nrow()
+
+write_csv(cd_excl_registrations, here("data", "reporting", "cd-excluded-registrations.csv"))

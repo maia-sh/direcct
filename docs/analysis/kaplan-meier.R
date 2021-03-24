@@ -269,5 +269,16 @@ preprint_article <-
 n_preprint_article <- nrow(preprint_article)
 median_preprint_article <- median(preprint_article$preprint_to_article)
 iqr_preprint_article <- IQR(preprint_article$preprint_to_article)
-q1_preprint_article <- median_preprint_article - iqr_preprint_article/2
-q3_preprint_article <- median_preprint_article + iqr_preprint_article/2
+q1_preprint_article <- round(quantile(preprint_article$preprint_to_article, 0.25), 1)
+q3_preprint_article <- round(quantile(preprint_article$preprint_to_article, 0.75), 1)
+
+# Trials with preprint only
+preprint_only <-
+  km_data %>%
+  filter(publication_preprint & !publication_article)
+
+n_preprint_only <- nrow(preprint_only)
+median_preprint_only <- median(preprint_only$time_publication_article)
+iqr_preprint_only <- IQR(preprint_only$time_publication_article)
+q1_preprint_only <- round(quantile(preprint_only$time_publication_article, 0.25), 1)
+q3_preprint_only <- round(quantile(preprint_only$time_publication_article, 0.75), 1)
