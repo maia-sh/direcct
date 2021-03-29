@@ -10,7 +10,11 @@ source(here::here("R", "environment.R"), echo = FALSE)
 # Note: Additional trials discovered via manual results verification are NOT included in the trials dataset, since we per protocol consider trials only from the ICTRP COVID dataset. We do capture these additional results, which may be linked to trials in later rounds, if trials added to ICTRP COVID dataset.
 
 manual_results <-
-  read_csv(latest("manual-results.csv", here("data", "raw")))
+  read_csv(latest("manual-results.csv", here("data", "raw"))) %>%
+
+  # Remove duplicated result with incorrect completion date
+  # NOTE: could also do this is prior cleaning of manual results
+  filter(!(doi == "10.1038/s41467-020-19056-6" & !is.na(date_completion)))
 
 manual_verified_results <-
   read_csv(latest("manual-verified-results.csv", here("data", "raw")))
