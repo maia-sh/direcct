@@ -282,3 +282,30 @@ median_preprint_only <- median(preprint_only$time_publication_article)
 iqr_preprint_only <- IQR(preprint_only$time_publication_article)
 q1_preprint_only <- round(quantile(preprint_only$time_publication_article, 0.25), 1)
 q3_preprint_only <- round(quantile(preprint_only$time_publication_article, 0.75), 1)
+
+# Time-to-preprint
+
+# preprint and journal article
+median_time_to_preprint_preprint_article <- median(preprint_article$time_publication_preprint)
+q1_time_to_preprint_preprint_article <- round(quantile(preprint_article$time_publication_preprint, 0.25), 1)
+q3_time_to_preprint_preprint_article <- round(quantile(preprint_article$time_publication_preprint, 0.75), 1)
+
+# preprint only
+median_time_to_preprint_preprint_only <- median(preprint_only$time_publication_preprint)
+q1_time_to_preprint_preprint_only <- round(quantile(preprint_only$time_publication_preprint, 0.25), 1)
+q3_time_to_preprint_preprint_only <- round(quantile(preprint_only$time_publication_preprint, 0.75), 1)
+
+# Time-to-journal-article
+# preprint and journal article
+median_time_to_article_preprint_article <- median(preprint_article$time_publication_article)
+q1_time_to_article_preprint_article <- round(quantile(preprint_article$time_publication_article, 0.25), 1)
+q3_time_to_article_preprint_article <- round(quantile(preprint_article$time_publication_article, 0.75), 1)
+
+# article only
+article_only <-
+  km_data %>%
+  filter(!publication_preprint & publication_article)
+
+median_time_to_article_article_only <- median(article_only$time_publication_article)
+q1_time_to_article_article_only <- round(quantile(article_only$time_publication_article, 0.25), 1)
+q3_time_to_article_article_only <- round(quantile(article_only$time_publication_article, 0.75), 1)
